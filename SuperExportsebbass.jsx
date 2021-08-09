@@ -12,15 +12,23 @@ function verifyResultWebPage() {
 	};
 }
 
+function saveCurrentImage(fileName) {
+	// Create and setup folder to save image
+	var desktopDir = "/Users/sebbelg/Desktop/DoneEmieCadre";
+	var folderName = "/image0101010222/";
+	var currentFolder = Folder(desktopDir + folderName);
+	//Check if it exist, if not create it.
+	if(!currentFolder.exists) currentFolder.create();
+	var fileNamePath = desktopDir + folderName + fileName;
+	var pngFile = new File(fileNamePath);
+	pngSaveOptions = new PNGSaveOptions();
+	pngSaveOptions.compression = 0;
+	pngSaveOptions.interlaced = false;
+	activeDocument.saveAs(pngFile, pngSaveOptions, true, Extension.LOWERCASE);
+}
+
+
 var docRef = app.activeDocument;
-
-// Create and setup folder to save image
-var desktopDir = "/Users/sebbelg/Desktop/DoneEmieCadre";
-var folderName = "/image0101010222";
-var currentFolder = Folder(desktopDir + folderName);
-//Check if it exist, if not create it.
-if(!currentFolder.exists) currentFolder.create();
-
 
 var savedState = app.activeDocument.activeHistoryState
 
@@ -28,36 +36,15 @@ var savedState = app.activeDocument.activeHistoryState
 // Sauvegarde de l'image de coté
 var bounds = [0, 0, 50, 50];
 app.activeDocument.crop(bounds);
-
-var fileName = "/contour D.png";
-var fileNamePath = desktopDir + folderName + fileName;
-var pngFile = new File(fileNamePath);
-
-pngSaveOptions = new PNGSaveOptions();
-pngSaveOptions.compression = 0;
-pngSaveOptions.interlaced = false;
-
-activeDocument.saveAs(pngFile, pngSaveOptions, true, Extension.LOWERCASE);
-
+saveCurrentImage("contour D.png");
 app.activeDocument.activeHistoryState = savedState
 
 
 // Sauvegarde de l'image du coin
 bounds = [0, 50, 50, 100];
 app.activeDocument.crop(bounds);
-
-fileName = "/coin BD.png";
-fileNamePath = desktopDir + folderName + fileName;
-pngFile = new File(fileNamePath);
-
-pngSaveOptions = new PNGSaveOptions();
-pngSaveOptions.compression = 0;
-pngSaveOptions.interlaced = false;
-
-activeDocument.saveAs(pngFile, pngSaveOptions, true, Extension.LOWERCASE);
-
+saveCurrentImage("coin BD.png");
 app.activeDocument.activeHistoryState = savedState
-
 
 verifyResultWebPage();
 
