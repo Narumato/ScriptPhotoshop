@@ -1,3 +1,17 @@
+function verifyResultWebPage() {
+	try{
+		var URL = new File("file:///Users/sebbelg/Desktop/DoneEmieCadre/image0101010222/Test.html");
+		URL.open("w");
+		URL.writeln('x<!DOCTYPE html><html><head><style>.grid-container { display: inline-grid; grid-template-columns: auto auto auto auto; background-color: #000000; padding: 0px;}.grid-item { background-color: rgba(0, 0, 0, 0.8); border: 0px solid rgba(0, 0, 0, 0.8); padding: 0px; font-size: 30px; text-align: center;}</style></head><body><h1>The display Property:</h1><div class="grid-container"> <div class="grid-item"> <img src="coin BD.png" style="border:0; text-decoration:none; outline:none; transform:rotate(180deg)"> </div> <div class="grid-item"> <img src="contour D.png" style="border:0; text-decoration:none; outline:none; transform:rotate(270deg)"> </div> <div class="grid-item"> <img src="contour D.png" style="border:0; text-decoration:none; outline:none; transform:rotate(270deg)"> </div> <div class="grid-item"> <img src="coin BD.png" style="border:0; text-decoration:none; outline:none; transform:rotate(270deg)"> </div> <div class="grid-item"> <img src="contour D.png" style="border:0; text-decoration:none; outline:none; transform:rotate(180deg)"> </div> <div class="grid-item"> </div> <div class="grid-item"> </div> <div class="grid-item"> <img src="contour D.png" style="border:0; text-decoration:none; outline:none; transform:rotate(0deg)"> </div> <div class="grid-item"> <img src="contour D.png" style="border:0; text-decoration:none; outline:none; transform:rotate(180deg)"> </div> <div class="grid-item"> </div> <div class="grid-item"> </div> <div class="grid-item"> <img src="contour D.png" style="border:0; text-decoration:none; outline:none; transform:rotate(0deg)"> </div> <div class="grid-item"> <img src="coin BD.png" style="border:0; text-decoration:none; outline:none; transform:rotate(90deg)"> </div> <div class="grid-item"> <img src="contour D.png" style="border:0; text-decoration:none; outline:none; transform:rotate(90deg)"> </div> <div class="grid-item"> <img src="contour D.png" style="border:0; text-decoration:none; outline:none; transform:rotate(90deg)"> </div> <div class="grid-item"> <img src="coin BD.png" style="border:0; text-decoration:none; outline:none; transform:rotate(0deg)"> </div> </div><p>Set the <em>display</em> property to <em>inline-grid</em> to make an inline grid container.</p></body></html>');
+		URL.close();
+		URL.execute();
+		$.sleep( 999 );
+		URL.remove();
+	}catch(e){
+		alert("Error, Can Not Open.");
+	};
+}
+
 var docRef = app.activeDocument;
 
 // Create and setup folder to save image
@@ -44,15 +58,11 @@ activeDocument.saveAs(pngFile, pngSaveOptions, true, Extension.LOWERCASE);
 
 app.activeDocument.activeHistoryState = savedState
 
-function help() {
-	try{
-		var URL = new File("file:///Users/sebbelg/Desktop/DoneEmieCadre/image0101010222/Test.html");
-		URL.execute();
-	}catch(e){
-		alert("Error, Can Not Open.");
-	};
-}
-help();
+
+verifyResultWebPage();
+
+
+
 
 // var dlg = new Window('dialog', 'My first script!',[100,100,480,250]);
 // dlg.btnPnl = dlg.add('panel', [25,15,365,125], 'Hello world!');
