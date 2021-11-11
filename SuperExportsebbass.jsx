@@ -32,15 +32,22 @@ var docRef = app.activeDocument;
 
 var savedState = app.activeDocument.activeHistoryState
 
+var width = app.activeDocument.width;
+var height = app.activeDocument.height;
+
+if (width * 2 != height) {
+	width = width -1;
+}
+
 // Sauvegarde de l'image de coté
-var bounds = [0, 0, 50, 50];
+var bounds = [0, 0, width, width];
 app.activeDocument.crop(bounds);
 saveCurrentImage("contour D.png");
 app.activeDocument.activeHistoryState = savedState
 
 
 // Sauvegarde de l'image du coin
-bounds = [0, 50, 50, 100];
+bounds = [0, width, width, width*2];
 app.activeDocument.crop(bounds);
 saveCurrentImage("coin BD.png");
 app.activeDocument.activeHistoryState = savedState
