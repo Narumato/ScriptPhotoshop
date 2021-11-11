@@ -39,6 +39,10 @@ if (width * 2 != height) {
 	width = width -1;
 }
 
+if (width % 2 == 1) {
+	width = width -1;
+}
+
 // Sauvegarde de l'image de coté
 var bounds = [0, 0, width, width];
 app.activeDocument.crop(bounds);
